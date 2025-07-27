@@ -3,18 +3,15 @@ import React, { useState } from "react";
 function Item({ name, category }) {
   const [isInCart, setIsInCart] = useState(false);
 
-  function handleAddToCartClick() {
-    setIsInCart((prev) => !prev);
+  function handleClick() {
+    setIsInCart((prevState) => !prevState);
   }
 
   return (
     <li className={isInCart ? "in-cart" : ""}>
       <span>{name}</span>
       <span className="category">{category}</span>
-      <button
-        className={isInCart ? "remove" : "add"}
-        onClick={handleAddToCartClick}
-      >
+      <button onClick={handleClick}>
         {isInCart ? "Remove From Cart" : "Add to Cart"}
       </button>
     </li>
@@ -22,3 +19,4 @@ function Item({ name, category }) {
 }
 
 export default Item;
+
